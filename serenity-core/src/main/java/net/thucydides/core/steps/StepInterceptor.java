@@ -369,11 +369,7 @@ public class StepInterceptor implements MethodErrorReporter,Interceptor {
     }
 
     private boolean aPreviousStepHasFailed() {
-        boolean aPreviousStepHasFailed = false;
-        if (StepEventBus.getEventBus().aStepInTheCurrentTestHasFailed()) {
-            aPreviousStepHasFailed = true;
-        }
-        return aPreviousStepHasFailed;
+        return StepEventBus.getEventBus().getBaseStepListener().aStepHasFailed();
     }
 
     private boolean isDryRun() {
